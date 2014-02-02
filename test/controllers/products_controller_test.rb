@@ -52,4 +52,11 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+
+  test "should show layout" do
+    get :index
+    assert_response :success
+    assert_select '#columns #side a', minimum: 1
+    assert_select '#main',1
+  end
 end
